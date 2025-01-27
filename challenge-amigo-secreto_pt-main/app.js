@@ -3,16 +3,25 @@
 
 let amigos = [];
 
+
+//funcao para add Amigos
 function adicionarAmigo(){
      let inputAmigo = document.getElementById('amigo');
      let nome = inputAmigo.value.trim();
-     amigos.push(nome);
-     console.log(nome);
-}
+     limpa(inputAmigo);
 
+    if (validarNome(nome)){
+        amigos.push(nome);
+        limpa(inputAmigo);
+        console.log(nome);
+    }
+    
+    
+}
+//funcao para validar nomes
 function validarNome(nome){
-    if (nome == " ") {
-        prompt("Por favor, insira um nome.");
+    if (nome === "") {
+        alert("Por favor, insira um nome!");
         return false;
     }
 
@@ -20,17 +29,25 @@ function validarNome(nome){
         alert("Este nome ja foi adcionado");
         return false;
     }
-
-    if (!isNaN (nome)){
-        alert ("Somente letra poderá ser inserida");
+    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/; 
+    if (!regex.test(nome)) {
+        alert("Somente letras podem ser inseridas!");
         return false;
+    
     }
     return true;
 }
 
+// funcao limpar campo de entrada
+function limpa(input){
+     input.value = "";
+   
 
+}
+
+//funcao sortear um amigo
 function sortearAmigo(){
-    console.log("Vamos iniciar o sorteio")
+    console.log("Vamos iniciar o sorteio");
 
 }
 
