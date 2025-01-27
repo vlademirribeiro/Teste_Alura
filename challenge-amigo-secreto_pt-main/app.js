@@ -3,12 +3,12 @@
 
 let amigos = [];
 
-function AdicionarAmigo(){
-
+function adicionarAmigo(){
+        console.log("o botao esta sendo clicado")
 }
 
 function validarNome(nome){
-    if (nome === "") {
+    if (nome === " ") {
         prompt("Por favor, insira um nome.");
         return false;
     }
@@ -23,6 +23,11 @@ function validarNome(nome){
         return false;
     }
     return true;
+}
+
+
+function sortearAmigo(){
+    console.log("Vamos iniciar o sorteio")
 
 }
 
