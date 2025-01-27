@@ -4,11 +4,14 @@
 let amigos = [];
 
 function adicionarAmigo(){
-        console.log("o botao esta sendo clicado")
+     let inputAmigo = document.getElementById('amigo');
+     let nome = inputAmigo.value.trim();
+     amigos.push(nome);
+     console.log(nome);
 }
 
 function validarNome(nome){
-    if (nome === " ") {
+    if (nome == " ") {
         prompt("Por favor, insira um nome.");
         return false;
     }
