@@ -3,7 +3,6 @@
 
 let amigos = [];
 
-
 //funcao para add Amigos
 function adicionarAmigo(){
      let inputAmigo = document.getElementById('amigo');
@@ -12,12 +11,12 @@ function adicionarAmigo(){
 
     if (validarNome(nome)){
         amigos.push(nome);
+        atualizarListaAmigos();
         limpa(inputAmigo);
         console.log(nome);
     }
-    
-    
 }
+
 //funcao para validar nomes
 function validarNome(nome){
     if (nome === "") {
@@ -26,14 +25,15 @@ function validarNome(nome){
     }
 
     if (amigos.includes(nome)){
-        alert("Este nome ja foi adcionado");
+        alert("Este nome ja foi adcionado!");
         return false;
     }
-    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/; 
+
+      let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/; 
+
     if (!regex.test(nome)) {
-        alert("Somente letras podem ser inseridas!");
+        alert("Somente letras poderá ser inseridas!");
         return false;
-    
     }
     return true;
 }
@@ -41,8 +41,22 @@ function validarNome(nome){
 // funcao limpar campo de entrada
 function limpa(input){
      input.value = "";
-   
+}
 
+//funcao para criar lista
+function criarLista(amigo, index){
+    let lista = document.createElement('li');
+    lista.textContent = amigo;
+    return lista;
+}
+
+// funcao para atualizar lista de amigos
+function atualizarListaAmigos(){
+    let listaAmigos = document.getElementById('listaAmigos');
+    listaAmigos.innerHTML = "";
+    amigos.forEach((amigo, index) => {
+        listaAmigos.appendChild(criarLista(amigo, index));
+    });
 }
 
 //funcao sortear um amigo
