@@ -13,7 +13,6 @@ function adicionarAmigo(){
         amigos.push(nome);
         atualizarListaAmigos();
         limpa(inputAmigo);
-        console.log(nome);
     }
 }
 
@@ -30,7 +29,6 @@ function validarNome(nome){
     }
 
       let regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/; 
-
     if (!regex.test(nome)) {
         alert("Somente letras poderá ser inseridas!");
         return false;
@@ -47,23 +45,58 @@ function limpa(input){
 function criarLista(amigo, index){
     let lista = document.createElement('li');
     lista.textContent = amigo;
-    return lista;
+    return lista;  
 }
 
 // funcao para atualizar lista de amigos
 function atualizarListaAmigos(){
-    let listaAmigos = document.getElementById('listaAmigos');
-    listaAmigos.innerHTML = "";
-    amigos.forEach((amigo, index) => {
-        listaAmigos.appendChild(criarLista(amigo, index));
-    });
+     let listaAmigos = document.getElementById('listaAmigos')
+     listaAmigos.innerHTML = "";
+
+    for (let i = 0; i < amigos.length; i++) {
+        listaAmigos.appendChild(criarLista(amigos[i], i));
+        
+    }  
 }
 
-//funcao sortear um amigo
-function sortearAmigo(){
-    console.log("Vamos iniciar o sorteio");
+//funcao para sortear amigo
+function sortearAmigo() {
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = ""; 
 
+    if (amigos.length < 2) {
+        alert("É necessário pelo menos 2 amigos para sortear.");
+        return;
+    }
+
+    let amigosRestantes = [...amigos];
+    let sorteio = [];
+
+    while (amigosRestantes.length > 0) {
+        let sorteado = amigosRestantes.splice(
+            Math.floor(Math.random() * amigosRestantes.length), 1
+        )[0];
+        sorteio.push(sorteado);
+    }
+
+    for (let i = 0; i < sorteio.length; i++) {
+        let amigo = sorteio[i];
+        let amigoSecreto = sorteio[(i + 1) % sorteio.length];
+
+        let li = document.createElement('li');
+        li.textContent = `${amigo} tirou ${amigoSecreto}`;
+        resultado.appendChild(li);
+    }
 }
+
+
+
+
+   
+    
+  
+
+
 
 
 
