@@ -8,3 +8,8 @@ que cada participante receba um amigo secreto sem repetiçoes. </p>
   <li>CSS</li>
   <li>JavaScript</li>
 </ul>
+<h2>Time</h2>
+<ul>
+  <li>Vladmir Ribeiro</li>
+  <li>Instrutores Alura</li>
+</ul>
