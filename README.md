@@ -11,5 +11,5 @@ que cada participante receba um amigo secreto sem repetiçoes. </p>
 <h2>Time</h2>
 <ul>
   <li>Vladmir Ribeiro</li>
-  <li>Instrutores Alura que me auxiliaram</li>
+  <li>Instrutores Alura</li>
 </ul>
